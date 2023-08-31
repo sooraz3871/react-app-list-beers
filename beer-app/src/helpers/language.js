@@ -1,9 +1,11 @@
-export default languages = {
+export const language = {
     success:{
-        FETCHED:"Successfully Fetched",
-        ADDED:"Succesfuly Added"
+        FETCH:"Successfully Fetched",
+        ADD:"Your Beer Was Successfully Added"
     },
     error:{
-        FAILED:"Operation Failed"
+        FETCH:"Failed To Fetch the Beers",
+        ADD:"Failed To add the Beer"
+
     }
 }

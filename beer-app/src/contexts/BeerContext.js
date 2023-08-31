@@ -3,6 +3,7 @@ import React, { createContext, useState, useEffect } from "react";
 import axiosClient from "../axios";
 import { Snackbar } from "@mui/material";
 import MuiAlert from "@mui/material/Alert";
+import {language} from "../helpers/language";
 
 export const BeerContext = createContext();
 
@@ -26,20 +27,18 @@ const BeerContextProvider = ({ children }) => {
       const beersData = response?.data;
       setBeers(beersData);
     } catch (error) {
-
-      showSnackbar("Error fetching beers", "error");
+      showSnackbar(language.error.FETCH, "error");
     }
   };
 
   const addBeers = async (item) => {
     try {
       setMyBeers([...myBeers, item]);
-      showSnackbar("Your Beer Was Successfully Added", "success");
+      showSnackbar(language.success.ADD, "success");
     } catch (error) {
-      showSnackbar("Error while adding a beer", "error");
+      showSnackbar(language.error.ADD, "error");
     }
   };
-
 
   const showSnackbar = (message, severity) => {
     setSnackbarMessage(message);
@@ -56,7 +55,7 @@ const BeerContextProvider = ({ children }) => {
       value={{
         beers,
         addBeers,
-        myBeers
+        myBeers,
       }}
     >
       {children}
