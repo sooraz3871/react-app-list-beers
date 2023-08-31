@@ -38,10 +38,9 @@
     align-items: center;
   }
   
-.custom-tab-label {
-  text-transform: none; /* Disable uppercase transformation */
-  font-weight: bold;
-}
+  .custom-tab-label {
+    text-transform: none;
+  }
 
 .container {
   display: flex;
@@ -109,4 +108,12 @@
 }
 .modal-button-container button {
   margin-left: 8px;
+}
+
+
+.no-data-link {
+  color: blue; /* Set the link color */
+  text-decoration: none; /* Remove underline */
+  cursor: pointer; /* Show cursor as pointer when hovering */
+  text-transform: none; /* Prevent text transformation */
 }

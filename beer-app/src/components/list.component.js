@@ -15,6 +15,7 @@ import { Box, Button } from '@mui/material';
 import { v4 as uuidv4 } from 'uuid';
 import beerImage from '../assets/images/HouzzBeer.png'
 import Tooltip from '@mui/material/Tooltip';
+import NoBeerComponent from './noBeer.component';
 
 
 export default function BeerList({ beers ,addBeers,myBeers}) {
@@ -48,6 +49,11 @@ export default function BeerList({ beers ,addBeers,myBeers}) {
     addBeers(newBeer)
   };
 
+
+  const handleAddBeerClick = () => {
+    setIsModalOpen(true);
+  };
+
   const filteredData = selectedTab === 0 ? beers : myBeers;
 
   return (
@@ -56,8 +62,8 @@ export default function BeerList({ beers ,addBeers,myBeers}) {
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 10 }}>
         <Box sx={{ width: '100%', maxWidth: 720, display: 'flex' }}>
           <Tabs value={selectedTab} onChange={handleTabChange} >
-            <Tab label="All Beers" className='custom-tab-label' />
-            <Tab label="My Beers" className='custom-tab-label' />
+            <Tab label="All Beers" style={{ textTransform: 'none' }} />
+            <Tab label="My Beers" style={{ textTransform: 'none' }} />
           </Tabs>
           {selectedTab === 1 && (
             <Button variant="contained" onClick={handleAddBeer} sx={{ marginLeft: 'auto',textTransform: 'none' }} size='small' >
@@ -65,6 +71,9 @@ export default function BeerList({ beers ,addBeers,myBeers}) {
             </Button>
           )}
         </Box>
+       {filteredData.length === 0 && (
+          <NoBeerComponent onAddBeerClick={handleAddBeerClick} />
+        )}  
         <List sx={{ width: '100%', maxWidth: 720, bgcolor: 'background.paper' }}>
           {filteredData.slice(0, itemsToShow).map((beer, index) => (
             <React.Fragment key={beer?.id}>
