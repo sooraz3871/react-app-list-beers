@@ -6,7 +6,6 @@ import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import '../styles/global.styles.css'
@@ -54,6 +53,12 @@ export default function BeerList({ beers ,addBeers,myBeers}) {
     setIsModalOpen(true);
   };
 
+  const getIngredients = (ingredients) =>{
+    if(ingredients== null) return "No Ingredients found for this beer"
+
+    return Object.keys(ingredients).join(",")
+  }
+
   const filteredData = selectedTab === 0 ? beers : myBeers;
 
   return (
@@ -87,7 +92,7 @@ export default function BeerList({ beers ,addBeers,myBeers}) {
                   boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
                   marginBottom: '10px'
                 }}>
-                <Tooltip title="Ingredients: hopes,water grains" placement="top" arrow
+                <Tooltip  title={getIngredients(beer?.ingredients)} placement="top" arrow
                   sx={{
                     width: 30
                   }}
