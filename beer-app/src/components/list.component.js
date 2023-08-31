@@ -70,6 +70,7 @@ export default function BeerList({ beers }) {
           {filteredData.slice(0, itemsToShow).map((beer, index) => (
             <React.Fragment key={beer?.id}>
               <ListItem alignItems="flex-start"
+              className="list-item" 
                 ref={index === 0 ? listItemRef : null}
                 key={beer.id}
                 sx={{

@@ -102,3 +102,9 @@
   gap: 8px; /* Space between buttons */
   margin-top: 16px; /* Add spacing above buttons */
 }
+
+
+/* styles.css (or your preferred CSS file) */
+.list-item:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Adjust the opacity and color as needed */
+}
