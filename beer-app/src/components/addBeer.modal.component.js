@@ -49,7 +49,7 @@ function AddBeerModal({ isOpen, onClose, onSave }) {
         />
         {/* Form inputs */}
         <TextField
-          label="Beer Name"
+          label="Beer Name*"
           name="name"
           value={beerData.name}
           onChange={handleInputChange}
@@ -58,7 +58,7 @@ function AddBeerModal({ isOpen, onClose, onSave }) {
           margin="normal"
         />
         <TextField
-          label="Genre"
+          label="Genre*"
           name="genre"
           value={beerData.genre}
           onChange={handleInputChange}
@@ -67,7 +67,7 @@ function AddBeerModal({ isOpen, onClose, onSave }) {
           margin="normal"
         />
         <TextField
-          label="Description"
+          label="Description*"
           name="description"
           value={beerData.description}
           onChange={handleInputChange}
@@ -77,10 +77,15 @@ function AddBeerModal({ isOpen, onClose, onSave }) {
           multiline
           rows={4}
         />
-        {/* Save button */}
-        <Button variant="contained" color="primary" onClick={handleSave}>
-          Save
-        </Button>
+       {/* Button container */}
+        <div className="modal-button-container">
+          <Button variant="outlined" onClick={onClose}>
+            Cancel
+          </Button>
+          <Button variant="contained" color="primary" onClick={handleSave}>
+            Save
+          </Button>
+        </div>
       </DialogContent>
     </Dialog>
   );

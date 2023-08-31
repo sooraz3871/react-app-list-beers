@@ -17,12 +17,11 @@ import beerImage from '../assets/images/HouzzBeer.png'
 import Tooltip from '@mui/material/Tooltip';
 
 
-export default function BeerList({ beers }) {
+export default function BeerList({ beers ,addBeers,myBeers}) {
 
   const [selectedTab, setSelectedTab] = React.useState(0);
   const [itemsToShow, setItemsToShow] = React.useState(10); // Number of items to display initially
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [addedBeers, setAddedBeers] = useState([]);
   const listItemRef = React.useRef(null);
 
 
@@ -46,10 +45,10 @@ export default function BeerList({ beers }) {
       image_url: beerImage,
       ...beerData
     };
-    setAddedBeers([...addedBeers, newBeer]);
+    addBeers(newBeer)
   };
 
-  const filteredData = selectedTab === 0 ? beers : addedBeers;
+  const filteredData = selectedTab === 0 ? beers : myBeers;
 
   return (
     <div>
@@ -61,8 +60,8 @@ export default function BeerList({ beers }) {
             <Tab label="My Beers" className='custom-tab-label' />
           </Tabs>
           {selectedTab === 1 && (
-            <Button variant="contained" onClick={handleAddBeer} sx={{ marginLeft: 'auto' }} size='small'>
-              Add a Beer
+            <Button variant="contained" onClick={handleAddBeer} sx={{ marginLeft: 'auto',textTransform: 'none' }} size='small' >
+              Add a new beer
             </Button>
           )}
         </Box>

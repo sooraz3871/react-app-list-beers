@@ -25,9 +25,6 @@
     color: orange;
   }
   
-
-
-  /* LoadMoreButtonStyles.css */
 .load-more-container {
     margin-top: 16px;
     display: flex;
@@ -41,14 +38,10 @@
     align-items: center;
   }
   
-
-
-  /* CustomTabStyles.css */
 .custom-tab-label {
   text-transform: none; /* Disable uppercase transformation */
   font-weight: bold;
 }
-
 
 .container {
   display: flex;
@@ -95,7 +88,7 @@
 
 
 
-/* AddBeerModal.css (or your preferred CSS file) */
+
 .modal-button-container {
   display: flex;
   justify-content: flex-end; /* Align buttons to the right */
@@ -104,7 +97,16 @@
 }
 
 
-/* styles.css (or your preferred CSS file) */
+
 .list-item:hover {
   background-color: rgba(0, 0, 0, 0.1); /* Adjust the opacity and color as needed */
+}
+
+.modal-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+.modal-button-container button {
+  margin-left: 8px;
 }
